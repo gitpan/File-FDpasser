@@ -13,7 +13,8 @@ use ExtUtils::MakeMaker;
 	   dec_osf=>'bsd44.o',
 	   irix=>'bsd43.o',
 	   hpux=>'bsd43.o',
-	   aix=>'bsd44.o');
+	   aix=>'bsd44.o',
+	   darwin=>'bsd44.o');
 
 if (!defined($ostofile{$^O})) { die "No support for os: $^O\nEdit makefile.pl and send mail to amh\@mbl.is\n"; }
 

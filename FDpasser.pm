@@ -37,7 +37,7 @@ require AutoLoader;
 
 
 
-$VERSION = '0.08';
+$VERSION = '0.09';
 
 bootstrap File::FDpasser $VERSION;
 
@@ -51,7 +51,8 @@ BEGIN {
 	     dec_osf=>'bsd',
 		 irix=>'bsd',
 		 hpux=>'bsd',
-		 aix=>'bsd'
+		 aix=>'bsd',
+	     darwin=>'bsd',
 	     );
     
     $OS=$ostype{$^O} || die "Platform $^O not supported!\n";
@@ -269,13 +270,13 @@ discarded since it's not reliably avaliable for BSD system too).
 
 =head1 AUTHOR
 
-amh@mbl.is
+addi@umich.edu
 
 =head1 SEE ALSO
 
 perl(1), sendmsg, recvmsg, ioctl, ioctl_list, select, poll.
 IO::Handle.
-http://gauss.mbl.is/~amh/FDpasser/.
+http://www.eecs.umich.edu/~addi/perl/FDpasser/.
 Advanced Programming in the UNIX Environment, Addison-Wesley, 1992.
 UNIX Network Programming, Prentice Hall, 1990.
 
