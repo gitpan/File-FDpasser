@@ -14,8 +14,6 @@
 #include	"common.h"
 
 
-
-
 /* size of control buffer to send/recv one file descriptor */
 /* Pass a file descriptor to another process.
  * If fd<0, then -fd is sent back instead as the error status. */
@@ -76,10 +74,10 @@ my_recv_fd(int servfd) {
 
  for (ptr = buf; ptr < &buf[nread]; ) {
    if (*ptr++ == 0) {
-     if (ptr != &buf[nread-1]) err_dump("message format error");
+     if (ptr != &buf[nread-1]) return(-1);
      status = *ptr & 255;
      if (status == 0) {
-       if (msg.msg_accrightslen != sizeof(int)) err_dump("status = 0 but no fd");
+       if (msg.msg_accrightslen != sizeof(int)) return(-1); 
        /* newfd = the new descriptor */
      } else newfd = -status;
      nread -= 2;
